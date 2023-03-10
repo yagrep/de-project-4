@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  de-pg-cr-af:
+    image: sindb/de-pg-cr-af:latest
+    ports:
+      - 9000:3000
+      - 9002:3002
+      - 9432:5432
+    volumes:
+      - s5t4postgresql_p:/var/lib/postgresql
+      - ./src/dags/:/lessons/dags
+    restart: unless-stopped
+
+volumes:
+  s5t4postgresql_p:
