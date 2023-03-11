@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS cdm.dm_courier_ledger (
 	courier_order_sum NUMERIC(19,2) NOT NULL,
 	courier_tips_sum NUMERIC(19,2) NOT NULL,
 	courier_reward_sum NUMERIC(19,2) NOT NULL,
-	CONSTRAINT cdm_courier_ledger_pkey PRIMARY KEY (id)
+	CONSTRAINT cdm_courier_ledger_pkey PRIMARY KEY (id),
+	CONSTRAINT cdm_courier_ledger_unique UNIQUE(courier_id, settlement_year, settlement_month)
 );
